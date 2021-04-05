@@ -1,5 +1,4 @@
-// minél kevesebb global var! a végén átrendezni? (stackoverflow meg odin help)
-const boardTable = document.querySelector('.board')
+// minél kevesebb global var! a végén átrendezni MODUL-lal!
 
 let board =['','','','','','','','',''] //had to fill in, otherwise I will have winner as soon as I start
 let numOfRounds = 0
@@ -11,6 +10,8 @@ fields.forEach(field => {
 })
 
 function markField (event){
+    clearBoardContent()
+
     let index = event.target.dataset.index
     console.log(index)
     whichPlayer = playerTurn()
@@ -28,14 +29,27 @@ function markField (event){
             numOfRounds++
     }}
 
+    drawBoard()
     checkWinner()
 
-    //drawFunction()
-    //rajz a táblára: looppal átmegy az arrayen és rárakja (library) és mindig letörli mielőtt újra rajzol
 }
 
 function playerTurn (){
     return (numOfRounds % 2 == 0) ? 'player1' : 'player2'
+}
+
+function clearBoardContent(){
+    fields.forEach(field => {
+        field.textContent = ''
+    })
+}
+
+function drawBoard(){
+    fields.forEach(field=>{
+        let mark = document.createElement('span');
+        mark.textContent = board[field.dataset.index];
+        field.appendChild(mark)
+    })
 }
 
 function checkWinner(){
