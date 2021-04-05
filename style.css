@@ -1,14 +1,22 @@
 body{
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(246, 247, 207);
     margin:0;
-    color: red;
+    font-family: monospace
 }
 
+header{
+    font-size: 20px;
+    margin-left:30px;
+}
+#o{
+    color:red;
+    font-size: inherit;
+}
 
 .board{
-    margin: 100px auto auto auto;
-    width: 600px;
-    height: 600px;
+    margin: 90px auto auto auto;
+    width: 400px;
+    height: 400px;
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -17,10 +25,15 @@ body{
 
 .field{
     border: 1px solid black;
-    width: 200px;
-    height:200px;
+    width: 150px;
+    height:150px;
+    display:flex;
+}
+span{
+    margin:auto;
+    font-size: 80px;
 }
 
 .field:hover{
-    background-color: rgb(216, 210, 210);
+    background-color: rgb(97, 96, 96);
 }

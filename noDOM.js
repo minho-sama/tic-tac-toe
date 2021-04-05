@@ -84,4 +84,3 @@ function newRound(){
     numOfRounds = 0
     winner = 'no one'
 }
-
